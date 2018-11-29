@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ContactDetailViewController.h
 //  Contacts MRC
 //
 //  Created by Ilgar Ilyasov on 11/29/18.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+NS_ASSUME_NONNULL_BEGIN
 
+@interface ContactDetailViewController : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END
