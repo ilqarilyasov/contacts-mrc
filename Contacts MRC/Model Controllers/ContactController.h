@@ -16,9 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy, readonly) NSArray<Contact *> *contacts;
 
-- (void)createContact;
-- (void)updateContact;
-- (void)deleteContact;
+- (void)createContactWithName:(NSString*)name email:(NSString*)email phone:(NSString*)phone;
+- (void)updateContact:(Contact*)contact name:(NSString*)name email:(NSString*)email phone:(NSString*)phone;
+- (void)deleteContact:(Contact*)contact;
 
 @end
 

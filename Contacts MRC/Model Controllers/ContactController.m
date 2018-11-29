@@ -11,25 +11,44 @@
 
 @interface ContactController ()
 
-@property (nonatomic, copy, readwrite) NSArray<Contact *> *internalContacts;
+@property (nonatomic, strong, readwrite) NSMutableArray<Contact *> *internalContacts;
 
 @end
 
 @implementation ContactController
 
-- (void)createContact
+- (void)dealloc
 {
+    [_internalContacts autorelease];
+    [super dealloc];
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _internalContacts = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
+- (void)createContactWithName:(NSString*)name email:(NSString*)email phone:(NSString*)phone
+{
+    Contact *newContact = [[[Contact alloc] initWithName:name email:email phone:phone] autorelease];
+    [self.internalContacts addObject:newContact];
     
 }
 
-- (void)updateContact
+- (void)updateContact:(Contact*)contact name:(NSString*)name email:(NSString*)email phone:(NSString*)phone
 {
-    
+    contact.contactName = name;
+    contact.contactEmail = email;
+    contact.contactPhone = phone;
 }
 
-- (void)deleteContact
+- (void)deleteContact:(Contact*)contact
 {
-    
+    [self.internalContacts removeObject:contact];
 }
 
 - (NSArray<Contact *> *)contacts

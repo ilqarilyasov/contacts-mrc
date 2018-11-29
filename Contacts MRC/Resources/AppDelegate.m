@@ -14,6 +14,11 @@
 
 @implementation AppDelegate
 
+- (void)dealloc
+{
+    [_window autorelease];
+    [super dealloc];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
