@@ -10,7 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class ContactController;
+@class Contact;
+
 @interface ContactDetailViewController : UIViewController
+
+@property (nonatomic, strong, nullable, readwrite) ContactController *contactController;
+@property (nonatomic, strong, nullable, readwrite) Contact *contact;
 
 @end
 

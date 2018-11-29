@@ -154,8 +154,17 @@
                         <viewLayoutGuide key="safeArea" id="q1N-hX-Hge"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="HlZ-Ih-eVu">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XPc-vF-rCJ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XPc-vF-rCJ">
+                            <connections>
+                                <action selector="saveTapped:" destination="cAu-Va-y28" id="Nzv-np-XrC"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailTextField" destination="zXu-yU-e3Z" id="hWD-2w-rS2"/>
+                        <outlet property="nameTextField" destination="QuV-NJ-67O" id="dO2-X5-Taq"/>
+                        <outlet property="phoneTextField" destination="yvG-OW-cXX" id="4hi-ht-2g8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xzS-wI-Jhj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

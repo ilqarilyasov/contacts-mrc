@@ -23,9 +23,9 @@
 
 - (void)dealloc
 {
-    [_contactName autorelease];
-    [_contactEmail autorelease];
-    [_contactPhone autorelease];
+    [_contactName release];
+    [_contactEmail release];
+    [_contactPhone release];
     [super dealloc];
 }
 

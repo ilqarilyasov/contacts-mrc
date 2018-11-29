@@ -19,7 +19,7 @@
 
 - (void)dealloc
 {
-    [_internalContacts autorelease];
+    [_internalContacts release];
     [super dealloc];
 }
 
@@ -34,16 +34,15 @@
 
 - (void)createContactWithName:(NSString*)name email:(NSString*)email phone:(NSString*)phone
 {
-    Contact *newContact = [[[Contact alloc] initWithName:name email:email phone:phone] autorelease];
+    Contact *newContact = [[[Contact alloc] initWithName:name email:email phone:phone] retain];
     [self.internalContacts addObject:newContact];
-    
 }
 
 - (void)updateContact:(Contact*)contact name:(NSString*)name email:(NSString*)email phone:(NSString*)phone
 {
-    contact.contactName = name;
-    contact.contactEmail = email;
-    contact.contactPhone = phone;
+    NSUInteger index = [self.internalContacts indexOfObject:contact];
+    Contact *newContact = [[[Contact alloc] initWithName:name email:email phone:phone] retain];
+    [self.internalContacts replaceObjectAtIndex:index withObject:newContact];
 }
 
 - (void)deleteContact:(Contact*)contact
