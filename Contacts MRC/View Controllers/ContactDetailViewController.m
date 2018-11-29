@@ -57,9 +57,17 @@
     }
 }
 
+// MOST IMPORTANT!!!
+// You should first release object with old value and then retain object with new value
+
 - (void)setContact:(Contact *)contact
 {
-    _contact = contact;
+    if (_contact == contact) { return ; } // IMPORTANT!!!
+    
+    [_contact release]; // IMPORTANT!!!
+    _contact = contact; // IMPORTANT!!!
+    [_contact retain]; // IMPORTANT!!!
+    
     [self updateViews];
 }
 

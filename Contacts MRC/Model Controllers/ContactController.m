@@ -34,15 +34,17 @@
 
 - (void)createContactWithName:(NSString*)name email:(NSString*)email phone:(NSString*)phone
 {
-    Contact *newContact = [[[Contact alloc] initWithName:name email:email phone:phone] retain];
+    Contact *newContact = [[Contact alloc] initWithName:name email:email phone:phone];
     [self.internalContacts addObject:newContact];
+    [newContact release];
 }
 
 - (void)updateContact:(Contact*)contact name:(NSString*)name email:(NSString*)email phone:(NSString*)phone
 {
     NSUInteger index = [self.internalContacts indexOfObject:contact];
-    Contact *newContact = [[[Contact alloc] initWithName:name email:email phone:phone] retain];
+    Contact *newContact = [[Contact alloc] initWithName:name email:email phone:phone];
     [self.internalContacts replaceObjectAtIndex:index withObject:newContact];
+    [newContact release];
 }
 
 - (void)deleteContact:(Contact*)contact
